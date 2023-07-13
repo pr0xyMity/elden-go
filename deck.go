@@ -4,6 +4,21 @@ import "fmt"
 
 type deck []string
 
+func newDeck() deck {
+    cardSuits := []string{"Spades", "Hearts", "Diamonds"}
+    cardValues := []string{"Ace", "Two", "Three"}
+
+    cards := deck{}
+
+    for _, suit := range cardSuits {
+        for _, value := range cardValues {
+            cards = append(cards, value+" of "+suit)        
+        }
+    }
+
+    return cards 
+}
+
 // This is a function RECEIVER 
 // it means that any variable of type "deck"
 // now has the access to the "print" method
