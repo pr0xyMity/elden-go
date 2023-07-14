@@ -9,7 +9,13 @@ import (
 	"time"
 )
 
-type deck []string
+type deck []card
+
+// fmt.Printf("%+v", value) <= this %+v prints all the keys not only values
+type card struct {
+    suit string
+    value string
+}
 
 func newDeck() deck {
     cardSuits := []string{"Spades", "Hearts", "Diamonds", "Clubs"}
@@ -19,7 +25,8 @@ func newDeck() deck {
 
     for _, suit := range cardSuits {
         for _, value := range cardValues {
-            cards = append(cards, value+" of "+suit)        
+            singleCard := card{value, suit}
+            cards = append(cards, singleCard)        
         }
     }
 
