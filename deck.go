@@ -38,7 +38,7 @@ func newDeck() deck {
 // now has the access to the "print" method
 func (d deck) print() {
     for i, card := range d {
-        fmt.Println(i, card)
+        fmt.Println(i, card.value+" of "+card.suit)
     }
 }
 
@@ -61,6 +61,7 @@ func newDeckFromFile(filename string) deck {
     }
 
     s := strings.Split(string(bs), ",")
+    // Create structs base on output
     return deck(s)
 }
 
