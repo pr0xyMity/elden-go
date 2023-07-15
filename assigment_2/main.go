@@ -13,12 +13,16 @@ func main() {
 	alex.firstName = "Alex"
 	alex.lastName = "Anderson"
 
+	alexPointer := &alex
+	alexPointer.updateName("Alexis")
+	alex.print()
 }
 
 func (p person) print() {
 	fmt.Printf("%+v", p)
 }
-func (p person) updateName(newFirstName string) {
+
+func (pointerToPerson *person) updateName(newFirstName string) {
 	// This does not work because go is a pass by value language
-	p.firstName = newFirstName
+	(*pointerToPerson).firstName = newFirstName
 }
